@@ -1,6 +1,7 @@
 import 'reflect-metadata'
 import { DataSource } from 'typeorm'
 import dotenv from 'dotenv'
+import { join } from 'path'
 dotenv.config()
 export default new DataSource({
   type: 'mysql',
@@ -9,8 +10,8 @@ export default new DataSource({
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
-  entities: [process.env.ENTITIES_PATH_FOR_BACKOFFICE!],
-  migrations: [process.env.MIGRATIONS_PATH_FOR_BACKOFFICE!],
+  entities: [join(__dirname, '/../**/**.entity{.ts,.js}')],
+  migrations: [join(__dirname, '/../**/databases/**/**{.ts,.js}')],
   synchronize: false,
   logging: false,
   ssl: {
