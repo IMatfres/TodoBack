@@ -42,10 +42,10 @@
    },
    "scripts": {
       "build": "tsc",
-      "start": "node ./dist/app/index.js",
+      "start:dev": "node ./dist/app/index.js",
       "typeorm": "typeorm-ts-node-commonjs",
       "migration:generate": "typeorm-ts-node-commonjs -d ./src/config/ormconfig.ts migration:generate",
       "migration:run": "typeorm-ts-node-commonjs -d ./src/config/ormconfig.ts migration:run",
-      "start:dev": "nodemon src/app/index.ts"
+      "start": "nodemon src/app/index.ts"
    }
 }
