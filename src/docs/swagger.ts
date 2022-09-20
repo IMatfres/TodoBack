@@ -12,7 +12,7 @@ const swaggerDefinition: OAS3Definition = {
     },
     servers: [
         {
-            url: "http://localhost:3000/api",
+            url: "https://api-production-e0ce.up.railway.app/api",
             description: "dev"
         },
     ],
