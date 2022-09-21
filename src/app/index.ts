@@ -5,6 +5,7 @@ import morgan from 'morgan';
 import 'reflect-metadata';
 import backofficeRoutes from './application/backoffice/routes';
 import { exceptionHandler } from './application/shared/middlewares/exceptionHandler';
+import cors from 'cors'
 
 import swaggerUi from "swagger-ui-express";
 import swaggerSetup from '../docs/swagger';
@@ -14,7 +15,7 @@ dotenv.config({ path: __dirname + '../../.env' });
 
 const app: Application = express();
 const port = process.env.PORT; 
-
+app.use(cors());
 app.use(helmet());
 app.use(morgan('combined'));
 app.use(express.json());
