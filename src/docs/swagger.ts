@@ -15,6 +15,10 @@ const swaggerDefinition: OAS3Definition = {
             url: "https://app-todo-.up.railway.app/api",
             description: "dev"
         },
+        {
+            url: "http://localhost:3000/api",
+            description: "dev"
+        }
     ],
     paths: {
         "/users/login": {
@@ -108,6 +112,74 @@ const swaggerDefinition: OAS3Definition = {
                     }
                 }
 
+            },
+            "delete": {
+                "description": "elimina un usuario por el id",
+                "summary": "eliminar usuario",
+                "tags": ["users"],
+                "security": [{ "bearerAuth": [] }],
+                "parameters": [
+                    {
+                        "name":"id",
+                        "in":"path",
+                        "description": "id de usuario para la busqueda",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                    },
+                    "400": {
+                        "description": "you are not authorized to perform this operation"
+                    },
+                    "404": {
+                        "description": "id does not exist"
+                    }
+                }
+            },
+            "put": {
+                "description": "actuliza la informacion de un usuario por id",
+                "summary": "actualizar usuario",
+                "tags": ["users"],
+                "security": [{ "bearerAuth": [] }],
+                "parameters": [
+                    {
+                        "name":"id",
+                        "in":"path",
+                        "description": "id de usuario para la busqueda",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/register"
+                            },
+                            examples: {
+                                "update": {
+                                    "value": {
+                                        "email": "update@gmail.com",
+                                        "password": "update123",
+                                        "username": "update312"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                    },
+                    "400": {
+                        "description": "you are not authorized"
+                    },
+                    "404": {
+                        "description": "id does not exist"
+                    }
+                }
             }
         },
     },
@@ -145,7 +217,7 @@ const swaggerDefinition: OAS3Definition = {
                         type: "string"
                     }
                 }
-            }
+            },
         }
     }
 }
