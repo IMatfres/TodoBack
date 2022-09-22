@@ -25,7 +25,7 @@ const swaggerDefinition: OAS3Definition = {
             "post": {
                 "summary": "Logueo de un usuario",
                 "description": "Esta ruta es responsable de loguear un usuario",
-                "tags": ["athentication"],
+                "tags": ["auth"],
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -57,7 +57,7 @@ const swaggerDefinition: OAS3Definition = {
             "post": {
                 "summary": "Registro de un usuario",
                 "description": "Esta ruta es responsable de registrar un usuario",
-                "tags": ["athentication"],
+                "tags": ["auth"],
                 "requestBody": {
                     "content": {
                         "application/json": {
