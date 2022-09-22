@@ -2,7 +2,7 @@
 
 Es una API REST con Node utilizando como lenguage core `TypeScript` y `TypeORM` como ORM SQL.
 
-## Configuaracion a aplicar:
+## Configuracion:
 
 - Crear un archivo .env: `.env` para las variables de entorno tome de guia, el ejemplo de configuracion`.env.example`
 - Instalar dependencias: `npm install`
