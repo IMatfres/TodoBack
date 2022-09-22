@@ -280,7 +280,7 @@ const swaggerDefinition: OAS3Definition = {
                 }
             },
             "delete": {
-                "description": "elimina ana tarea por el id",
+                "description": "elimina una tarea por el id",
                 "summary": "eliminar tarea",
                 "tags": ["tasks"],
                 "security": [{ "bearerAuth": [] }],
