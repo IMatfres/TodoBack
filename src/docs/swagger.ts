@@ -233,6 +233,76 @@ const swaggerDefinition: OAS3Definition = {
                     }
                 }
                 
+            },
+        },
+        "/tasks/{id}": {
+            "put": {
+                "description": "actuliza la informacion de la tarea por id",
+                "summary": "actualizar tarea",
+                "tags": ["tasks"],
+                "security": [{ "bearerAuth": [] }],
+                "parameters": [
+                    {
+                        "name":"id",
+                        "in":"path",
+                        "description": "id de la tarea que se quiere actualizar",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/tarea"
+                            },
+                            examples: {
+                                "update": {
+                                    "value": {
+                                        "titulo": "nuevo titulo",
+                                        "descripcion": "una descripcion",
+                                        "estado": "un estado"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                    },
+                    "400": {
+                        "description": "you are not authorized"
+                    },
+                    "404": {
+                        "description": "id does not exist"
+                    }
+                }
+            },
+            "delete": {
+                "description": "elimina ana tarea por el id",
+                "summary": "eliminar tarea",
+                "tags": ["tasks"],
+                "security": [{ "bearerAuth": [] }],
+                "parameters": [
+                    {
+                        "name":"id",
+                        "in":"path",
+                        "description": "id de la tarea que se quiere eliminar",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                    },
+                    "400": {
+                        "description": "you are not authorized to perform this operation"
+                    },
+                    "404": {
+                        "description": "id does not exist"
+                    }
+                }
             }
         }
     },
