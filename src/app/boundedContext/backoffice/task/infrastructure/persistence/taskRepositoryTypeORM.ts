@@ -1,4 +1,4 @@
-import { TaskEntity } from './typeORM/task.entity';
+import { TaskEntity } from '../../../users/infrastructure/persistence/typeORM/task.entity';
 import { TaskModel } from '../../domain/models/task.model';
 import { Task } from '../../domain/valueObjects/task';
 import { TaskCompletada, TaskEstado, TaskDescripcion, TaskId, TaskUserId, TaskTitulo} from '../../domain/valueObjects/index'
@@ -22,7 +22,7 @@ export class TaskRepositoryTypeORM implements TaskRepository {
     const firstItem = 0;
     const data = await TaskEntity.findOne({
       where: {
-        id: task.getValueUserId(),
+        userid: task.getValueUserId(),
         titulo: task.getValueTitulo()
       }
     })

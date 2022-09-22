@@ -182,6 +182,59 @@ const swaggerDefinition: OAS3Definition = {
                 }
             }
         },
+        "/tasks": {
+            "post": {
+                "summary": "Registro de una tarea ",
+                "description": "Esta ruta es responsable de registrar la tarea de un usuario",
+                "tags": ["tasks"],
+                "security": [{ "bearerAuth": [] }],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/tarea"
+                            },
+                            examples: {
+                                "tarea example": {
+                                    "value": {
+                                        "titulo": "nombre de la tarea a cargar",
+                                        "descripcion": "una descripcion",
+                                        "estado": "el estado de la misma"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "ok",
+                    },
+                    "400": {
+                        "description": "you are not authorized"
+                        
+                    },
+                    "409": {
+                        "description": "task already exists"
+                    }
+                }
+            },
+            "get": {
+                "summary": "Lista de tareas de un usuario",
+                "description": "Esta ruta es responsable de mostrar todas las tareas del usuario logueado",
+                "tags": ["tasks"],
+                "security": [{ "bearerAuth": [] }],
+                "responses": {
+                    "200": {
+                        "description": "lista de tareas",
+                    },
+                    "400": {
+                        "description": "you are not authorized to perform this operation"
+                    }
+                }
+                
+            }
+        }
     },
     components: {
         securitySchemes: {
@@ -218,6 +271,21 @@ const swaggerDefinition: OAS3Definition = {
                     }
                 }
             },
+            tarea: {
+                type: "object",
+                required: ["titulo", "descripcion", "estado"],
+                properties: {
+                    titulo: {
+                        type: "string"
+                    },
+                    descripcion: {
+                        type: "string"
+                    },
+                    estado: {
+                        type: "string"
+                    }
+                }
+            }
         }
     }
 }

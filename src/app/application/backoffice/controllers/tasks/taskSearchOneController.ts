@@ -14,7 +14,7 @@ export class TaskSearchOneController {
   }
 
   public async run(req: Request, res: Response): Promise<void> {
-    const task = await this.taskSearcherOne.run(new TaskId(req.body.id));
+    const task = await this.taskSearcherOne.run(new TaskId(req.params.id));
     res.status(HTTP_STATUS.SUCCESS).send(task.toModel());
   }
 

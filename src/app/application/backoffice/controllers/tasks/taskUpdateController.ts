@@ -23,7 +23,7 @@ export class TaskUpdateController {
       new TaskCompletada(req.body.completada),
       new TaskDescripcion(req.body.descripcion),
       new TaskEstado(req.body.estado),
-      new TaskUserId(req.body.userid)
+      new TaskUserId(req.userlogueado)
       
     )
     await this.taskUpdator.run(task);

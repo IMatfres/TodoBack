@@ -4,7 +4,9 @@ import { TokenErrorException } from '../../../boundedContext/shared/domain/utils
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv'
 dotenv.config()
-
+type JwtPayload = {
+    id: string
+}
 export const tokenValidation = (req: Request, res: Response, next: NextFunction) => {
     const {authorization} = req.headers
     if (!authorization) {
@@ -13,7 +15,9 @@ export const tokenValidation = (req: Request, res: Response, next: NextFunction)
 
     try {
         const token = authorization.split(' ')[1]
-        const payload = jwt.verify(token, process.env.JWT_PASS!)
+        const payload = jwt.verify(token, process.env.JWT_PASS!) as JwtPayload
+        const data: string = payload.id
+        req.userlogueado = data
         next()
     } catch (error) {
         throw new TokenErrorException()

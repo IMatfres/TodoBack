@@ -25,7 +25,7 @@ export class TaskCreateController {
       new TaskCompletada(false),
       new TaskDescripcion(req.body.descripcion),
       new TaskEstado(req.body.estado),
-      new TaskUserId(req.body.userid)
+      new TaskUserId(req.userlogueado)
 
     )
     await this.taskCreator.run(task);
