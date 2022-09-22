@@ -8,6 +8,6 @@ Es una API REST con Node utilizando como lenguage core `TypeScript` y `TypeORM` 
 - Instalar dependencias: `npm install`
 - Ejecutar el servidor: `npm run start`
 
-## Documentacion aun en proceso:
+## Documentacion:
 - Navegar a https://app-todo-.up.railway.app/doc/
 
