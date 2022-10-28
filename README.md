@@ -10,5 +10,5 @@ Es una API REST con Node utilizando como lenguage core `TypeScript` y `TypeORM` 
 - Seguido `npm run migration:run` para correr esa migracion a la base de datos 
 - Ejecutar el servidor: `npm run start`
 ## Documentacion:
-- Navegar a https://app-todo-.up.railway.app/doc/
+- Navegar a https://todolist-messi.up.railway.app/doc/
 
